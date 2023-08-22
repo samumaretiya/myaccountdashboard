@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2023 SamUmaretiya. All rights reserved.
+ * Skype: samumaretiya
+ * Email: samumaretiya@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ZealousCommerce_dashboard" translate="label" sortOrder="10">
+            <label>ZealousCommerce</label>
+        </tab>
+        <section id="account_tab_setting" translate="label" type="text"
+                 sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>My Account Setting Tab</label>
+            <tab>ZealousCommerce_dashboard</tab>
+            <resource>Zealouscommerce_MyAccountDashboard::config</resource>
+            <group id="account_dashboard_tab" translate="label" type="text"
+                   sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>My Account Dashboard Tabs</label>
+                <field id="selected_tab" translate="label" type="multiselect" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Tab To Hide</label>
+                    <source_model>Zealouscommerce\MyAccountDashboard\Model\Config\Source\Linklist</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

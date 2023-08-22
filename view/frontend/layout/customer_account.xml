@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2023 SamUmaretiya. All rights reserved.
+ * Skype: samumaretiya
+ * Email: samumaretiya@gmail.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\Customer\Block\Account\AuthorizationLink"
+                    name="authorization-link-login-2"
+                    template="Zealouscommerce_MyAccountDashboard::account/link/authorization.phtml">
+                <arguments>
+                    <argument name="sortOrder" xsi:type="number">0</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

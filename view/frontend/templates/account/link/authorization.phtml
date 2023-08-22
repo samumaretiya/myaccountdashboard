@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © 2023 SamUmaretiya. All rights reserved.
+ * Skype: samumaretiya
+ * Email: samumaretiya@gmail.com
+**/
+$myAccountLink = $viewModels->require(\Hyva\Theme\ViewModel\StoreConfig::class);
+$AllLink= $myAccountLink->getStoreConfig('account_tab_setting/account_dashboard_tab/selected_tab');
+$linkCollection = null;
+if($AllLink !== null){
+    $linkCollection =  explode(',', $AllLink);
+}else{
+    return;
+}
+
+$uniqid ="_".uniqid();
+?>
+<script>
+    function hideDashboardLink<?= $uniqid ?> () {
+        return {
+            Linkdata:'<?php echo json_encode($linkCollection)?>',
+            hideLink () {
+                const getLink = document.querySelector('#account-nav');
+                const getAllLink = getLink.querySelectorAll('a');
+                Array.from(getAllLink).map((element)=>{
+                    if(this.Linkdata.includes(String(element.innerHTML))){
+                        element.parentElement.classList.add('hidden');
+                    }
+                });
+            }
+        }
+    };
+</script>
+<div class="hidden" x-data = "hideDashboardLink<?= $uniqid ?>()" x-init ="hideLink(); $nextTick(() => {hideLink() })"></div>
